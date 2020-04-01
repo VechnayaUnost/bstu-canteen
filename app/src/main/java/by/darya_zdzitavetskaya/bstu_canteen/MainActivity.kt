@@ -1,21 +1,14 @@
 package by.darya_zdzitavetskaya.bstu_canteen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import by.darya_zdzitavetskaya.bstu_canteen.navigation.Navigator
 import by.darya_zdzitavetskaya.bstu_canteen.navigation.Screens
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
+import dagger.android.support.DaggerAppCompatActivity
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), Injectable, HasAndroidInjector {
-
-    override fun androidInjector(): DispatchingAndroidInjector<Any> = dispatchingAndroidInjector
-
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+class MainActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var ciceroneFactory: Cicerone<Router>

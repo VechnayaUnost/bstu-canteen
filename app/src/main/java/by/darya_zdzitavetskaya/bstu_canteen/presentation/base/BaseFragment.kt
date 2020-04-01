@@ -1,24 +1,17 @@
 package by.darya_zdzitavetskaya.bstu_canteen.presentation.base
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import by.darya_zdzitavetskaya.bstu_canteen.BR
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
-import dagger.android.support.AndroidSupportInjection
-import javax.inject.Inject
+import dagger.android.support.DaggerFragment
 
-abstract class BaseFragment<VM : ViewModel, VDB : ViewDataBinding> : Fragment(),
-    HasAndroidInjector {
+abstract class BaseFragment<VM : ViewModel, VDB : ViewDataBinding> : DaggerFragment(){
 
     abstract val layoutId: Int
 
@@ -31,14 +24,6 @@ abstract class BaseFragment<VM : ViewModel, VDB : ViewDataBinding> : Fragment(),
     abstract val viewModelClass: Class<VM>
 
     abstract val scope: ViewModelScope
-
-    @Inject
-    lateinit var androidInjector: DispatchingAndroidInjector<Any>
-
-    override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,12 +42,6 @@ abstract class BaseFragment<VM : ViewModel, VDB : ViewDataBinding> : Fragment(),
 
         return viewBinding.root
     }
-
-    override fun androidInjector(): AndroidInjector<Any> {
-        return androidInjector
-    }
-
-    override fun getView(): View? = viewBinding.root
 
     enum class ViewModelScope {
         ACTIVITY,
