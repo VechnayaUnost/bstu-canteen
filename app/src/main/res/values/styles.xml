@@ -1,11 +1,24 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
+    </style>
+
+    <style name="Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:minHeight">?actionBarSize</item>
+        <item name="android:theme">@style/ToolbarOverlay</item>
+        <item name="android:popupTheme">@style/PopUpOverlay</item>
+    </style>
+
+    <style name="AppBar" parent="Widget.MaterialComponents.AppBarLayout.Primary" />
+
+    <style name="ToolbarWithBackButton" parent="Toolbar">
+        <item name="navigationIcon">@drawable/ic_arrow_back</item>
     </style>
 
 </resources>
