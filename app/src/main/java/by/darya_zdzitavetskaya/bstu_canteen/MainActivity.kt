@@ -14,6 +14,7 @@ class MainActivity : DaggerAppCompatActivity() {
     lateinit var ciceroneFactory: Cicerone<Router>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ciceroneFactory.router.newRootScreen(Screens.LoginScreen())
