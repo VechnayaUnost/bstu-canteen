@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">BSTU Canteen</string>
+    <string name="menu">Menu</string>
+    <string name="orders">Orders</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+
+    <!-- Login screen -->
+    <string name="login_toolbar_title">Login</string>
+    <string name="login_email_label">Email</string>
+    <string name="login_password_label">Password</string>
+    <string name="login_next_btn_label">Next</string>
+    <string name="login_create_account_btn_label">Create account</string>
+
+    <!-- Registration screen -->
+    <string name="registration_toolbar_title">Create account</string>
+    <string name="registration_hint">We will send code to confirm your email</string>
+
+    <!-- Confirmation code screen -->
+    <string name="confirmation_code_toolbar_title">Confirmation code</string>
+    <string name="confirmation_code_subtitle">We have sent an confirmation code to your email %s</string>
+    <string name="confirmation_code_expire">code will expire: %s</string>
+    <string name="sms_protection_timer" translatable="false">%02d:%02d</string>
+    <string name="confirmation_code_try_again">Try again</string>
+
+    <!-- Password screen -->
+    <string name="password_toolbar_title">Enter you password</string>
+    <string name="password_label">Password</string>
+    <string name="password_hint">Your password must be at least 8 characters, contain at least one digit, letter and special character(!@#$%^&amp;*)</string>
+
+    <!-- Profile screen -->
+    <string name="profile_change_password_btn_label">Change password</string>
+    <string name="profile_logout_btn_label">Logout</string>
+    <string name="profile_your_email_subtitle">Your email</string>
+    <string name="profile_add_payment_method_title">Add payment method</string>
+
+    <!-- Cart screen -->
+    <string name="cart_total_items">Total items: %d</string>
+    <string name="cart_total_price">Total price: %d</string>
+    <string name="cart_make_order_btn_label">Make order</string>
 </resources>

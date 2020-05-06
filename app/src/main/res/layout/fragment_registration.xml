@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.login.LoginViewModel" />
+            type="by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.registration.RegistrationViewModel" />
 
     </data>
 
@@ -16,10 +16,23 @@
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar"
+            layout="@layout/toolbar_with_back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/base_spacing"
+            android:layout_marginTop="@dimen/base_spacing"
+            android:layout_marginEnd="@dimen/base_spacing"
+            android:text="@string/registration_hint"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Tooltip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
@@ -27,43 +40,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/base_spacing"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="@dimen/base_spacing"
             android:hint="@string/login_email_label"
             app:endIconMode="clear_text"
-            app:layout_constraintBottom_toTopOf="@+id/tilPassword"
+            app:layout_constraintBottom_toTopOf="@+id/btnNext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/tvTip"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintVertical_chainStyle="packed">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPassword"
-            style="@style/TextInputLayout.Common"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/base_spacing"
-            android:layout_marginTop="@dimen/small_spacing"
-            android:layout_marginEnd="@dimen/base_spacing"
-            android:hint="@string/login_password_label"
-            app:endIconMode="clear_text"
-            app:layout_constraintBottom_toTopOf="@+id/btnNext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilEmail">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -75,27 +66,13 @@
             android:layout_marginStart="@dimen/base_spacing"
             android:layout_marginTop="@dimen/small_spacing"
             android:layout_marginEnd="@dimen/base_spacing"
-            android:enabled="@{viewModel.isFieldsValid}"
-            android:onClick="@{() -> viewModel.login(etEmail.getText().toString(), etPassword.getText().toString())}"
+            android:enabled="@{viewModel.isEmailValid}"
+            android:onClick="@{() -> viewModel.confirmEmail(etEmail.getText().toString())}"
             android:text="@string/login_next_btn_label"
-            app:layout_constraintBottom_toTopOf="@id/btnRegistration"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnRegistration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/base_spacing"
-            android:layout_marginTop="@dimen/biggest_spacing"
-            android:layout_marginEnd="@dimen/base_spacing"
-            android:onClick="@{() -> viewModel.registration()}"
-            android:text="@string/login_create_account_btn_label"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnNext" />
+            app:layout_constraintTop_toBottomOf="@id/tilEmail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

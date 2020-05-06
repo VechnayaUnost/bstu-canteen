@@ -5,7 +5,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
 
-private const val TOKEN_HEADER = "AUTHORIZATION"
+private const val TOKEN_HEADER = "auth-token"
 
 class AuthorizationInterceptor @Inject constructor(private val tokenCache: ITokenCache) :
     Interceptor {

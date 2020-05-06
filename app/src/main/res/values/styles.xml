@@ -18,12 +18,36 @@
         <item name="android:minHeight">?actionBarSize</item>
         <item name="android:theme">@style/ToolbarOverlay</item>
         <item name="android:popupTheme">@style/PopUpOverlay</item>
+        <item name="titleTextColor">@color/colorBlack</item>
+    </style>
+
+    <style name="FullScreenDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 
     <style name="AppBar" parent="Widget.MaterialComponents.AppBarLayout.Primary" />
 
     <style name="ToolbarWithBackButton" parent="Toolbar">
         <item name="navigationIcon">@drawable/ic_arrow_back</item>
+    </style>
+
+    <style name="TextInputLayout.Common" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxStrokeColor">@color/colorAccent</item>
+        <item name="hintTextColor">@color/colorAccent</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
 </resources>

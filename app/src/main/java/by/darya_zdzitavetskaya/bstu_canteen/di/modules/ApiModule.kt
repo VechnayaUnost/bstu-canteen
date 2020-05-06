@@ -50,7 +50,7 @@ class ApiModule {
     fun provideApi(gson: Gson, okHttpClient: OkHttpClient): Api {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("")        //TODO
+            .baseUrl("https://brstu-canteen.herokuapp.com/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build().create(Api::class.java) as Api
