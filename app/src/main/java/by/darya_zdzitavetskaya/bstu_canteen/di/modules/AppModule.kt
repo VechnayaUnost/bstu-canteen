@@ -8,7 +8,11 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.login.LoginFragmen
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.password.PasswordFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.registration.RegistrationFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.MainFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.cart.CartFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.MenuFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.category.CategoryFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_product.DetailProductFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileFragment
 import dagger.Module
 import dagger.android.AndroidInjectionModule
@@ -41,7 +45,7 @@ abstract class AppModule {
         abstract fun passwordFragment(): PasswordFragment
 
         @FragmentScope
-        @ContributesAndroidInjector(modules = [AuthModule::class])
+        @ContributesAndroidInjector(modules = [MainModule::class])
         abstract fun mainFragment(): MainFragment
 
         @FragmentScope
@@ -51,5 +55,21 @@ abstract class AppModule {
         @FragmentScope
         @ContributesAndroidInjector(modules = [MainModule::class])
         abstract fun menuFragment(): MenuFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun categoryFragment(): CategoryFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun editProductFragment(): EditProductFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun detailProductFragment(): DetailProductFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun cartFragment(): CartFragment
     }
 }

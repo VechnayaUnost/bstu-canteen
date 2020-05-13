@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DD000000">
+    android:background="#80FFFFFF">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -10,8 +10,8 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:indeterminate="true"
-        android:indeterminateTint="#FFFFFF"
+        android:indeterminateTint="@color/colorAccent"
         android:indeterminateTintMode="src_atop"
-        android:progressBackgroundTint="@color/lb_tv_white" />
+        android:progressBackgroundTint="@color/colorAccent" />
 
 </FrameLayout>

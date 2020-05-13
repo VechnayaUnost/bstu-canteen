@@ -4,20 +4,17 @@ import by.darya_zdzitavetskaya.bstu_canteen.api.request.LoginRequest
 import by.darya_zdzitavetskaya.bstu_canteen.api.request.RegistrationRequest
 import by.darya_zdzitavetskaya.bstu_canteen.api.request.SetPasswordRequest
 import by.darya_zdzitavetskaya.bstu_canteen.api.request.VerifyRequest
-import by.darya_zdzitavetskaya.bstu_canteen.api.response.CategoriesResponse
-import by.darya_zdzitavetskaya.bstu_canteen.api.response.CategoryResponse
-import by.darya_zdzitavetskaya.bstu_canteen.api.response.UserResponse
+import by.darya_zdzitavetskaya.bstu_canteen.api.response.*
 import io.reactivex.Completable
 import io.reactivex.Single
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface Api {
 
     companion object {
+
+        private const val CHECK_ENDPOINT = "api/auth/check"
 
         private const val LOGIN_ENDPOINT = "api/auth/login"
 
@@ -33,7 +30,18 @@ interface Api {
 
         private const val GET_CATEGORY_ENDPOINT = "api/categories/{categoryId}"
 
+        private const val CREATE_PRODUCT_ENDPOINT = "api/products/create"
+
+        private const val GET_PRODUCT_ENDPOINT = "api/products/getById/{productId}"
+
+        private const val UPDATE_PRODUCT_ENDPOINT = "api/products/update"
+
+        private const val DELETE_PRODUCT_ENDPOINT = "api/products/delete/{productId}"
+
     }
+
+    @GET(CHECK_ENDPOINT)
+    fun check(): Single<Response<UserResponse>>
 
     @POST(LOGIN_ENDPOINT)
     fun login(@Body body: LoginRequest): Single<Response<UserResponse>>
@@ -55,4 +63,16 @@ interface Api {
 
     @GET(GET_CATEGORY_ENDPOINT)
     fun getCategory(@Path("categoryId") categoryId: String): Single<Response<CategoryResponse>>
+
+    @POST(CREATE_PRODUCT_ENDPOINT)
+    fun createProduct(@Body body: Product): Single<Response<Product>>
+
+    @GET(GET_PRODUCT_ENDPOINT)
+    fun getProduct(@Path("productId") productId: String): Single<Response<ProductResponse>>
+
+    @PUT(UPDATE_PRODUCT_ENDPOINT)
+    fun updateProduct(@Body body: Product): Single<Response<Product>>
+
+    @DELETE(DELETE_PRODUCT_ENDPOINT)
+    fun deleteProduct(@Path("productId") productId: String): Completable
 }

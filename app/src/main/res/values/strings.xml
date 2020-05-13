@@ -36,6 +36,24 @@
 
     <!-- Cart screen -->
     <string name="cart_total_items">Total items: %d</string>
-    <string name="cart_total_price">Total price: %d</string>
+    <string name="cart_total_price">Total price: %.2f r.</string>
     <string name="cart_make_order_btn_label">Make order</string>
+    <string name="cart_price">%.2f r.</string>
+    <string name="cart_cart_is_empty">Cart is empty</string>
+
+    <!-- Edit product screen -->
+    <string name="edit_product_info_message">Enter product name and add a photo.</string>
+    <string name="edit_product_description">Description</string>
+    <string name="edit_product_price">Price</string>
+    <string name="edit_product_price_suffix">r.</string>
+    <string name="edit_product_quantity">Quantity</string>
+    <string name="edit_product_done_btn_label">Done</string>
+    <string name="edit_product_new_product_title">Create new product</string>
+
+    <!-- Detail product screen -->
+    <string name="detail_product_price_subtitle">Price %.2f r.</string>
+    <string name="detail_product_balance_subtitle">Remain %d</string>
+    <string name="detail_product_quantity_subtitle">Choose quantity</string>
+    <string name="detail_product_add_to_cart_btn_label">Add to cart</string>
+
 </resources>

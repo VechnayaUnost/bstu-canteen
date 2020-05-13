@@ -1,9 +1,6 @@
 package by.darya_zdzitavetskaya.bstu_canteen.di.modules
 
-import by.darya_zdzitavetskaya.bstu_canteen.shared.ITokenCache
-import by.darya_zdzitavetskaya.bstu_canteen.shared.IUserCache
-import by.darya_zdzitavetskaya.bstu_canteen.shared.TokenCache
-import by.darya_zdzitavetskaya.bstu_canteen.shared.UserCache
+import by.darya_zdzitavetskaya.bstu_canteen.shared.*
 import by.darya_zdzitavetskaya.bstu_canteen.utils.ISharedPreferencesUtil
 import by.darya_zdzitavetskaya.bstu_canteen.utils.SharedPreferencesUtil
 import dagger.Binds
@@ -24,4 +21,8 @@ abstract class SharedModule {
     @Binds
     @Singleton
     abstract fun bindUserCache(userCache: UserCache): IUserCache
+
+    @Binds
+    @Singleton
+    abstract fun bindCartCache(cartCache: CartCache): ICartCache
 }
