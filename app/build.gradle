@@ -86,4 +86,7 @@ dependencies {
 
     //SwipeLayout
     implementation "com.daimajia.swipelayout:library:1.2.0@aar"
+
+    //Permissions
+    implementation 'com.github.sembozdemir:PermissionsKt:1.0.0'
 }

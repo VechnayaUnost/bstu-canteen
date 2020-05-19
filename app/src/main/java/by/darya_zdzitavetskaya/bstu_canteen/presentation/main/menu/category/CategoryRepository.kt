@@ -5,13 +5,12 @@ import by.darya_zdzitavetskaya.bstu_canteen.api.response.CategoryResponse
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import retrofit2.Response
 import javax.inject.Inject
 
 class CategoryRepository @Inject constructor(private val api: Api) :
     CategoryProtocol.ICategoryRepository {
 
-    override fun getCategory(categoryId: String): Single<Response<CategoryResponse>> {
+    override fun getCategory(categoryId: String): Single<CategoryResponse> {
         return api.getCategory(categoryId).subscribeOn(Schedulers.io())
     }
 

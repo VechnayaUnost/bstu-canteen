@@ -1,6 +1,7 @@
 package by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile
 
 import androidx.databinding.ObservableField
+import by.darya_zdzitavetskaya.bstu_canteen.navigation.Screens
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.base.BaseViewModel
 import by.darya_zdzitavetskaya.bstu_canteen.shared.IUserCache
 import ru.terrakok.cicerone.Router
@@ -17,5 +18,9 @@ class ProfileViewModel @Inject constructor(
         userCache.user.subscribe {
             userEmail.set(it.email)
         }.addDisposable()
+    }
+
+    fun logout() {
+        router.newRootScreen(Screens.LoginScreen())
     }
 }

@@ -17,9 +17,7 @@ class MenuViewModel @Inject constructor(
         menuRepository.getCategories()
             .applySchedulers()
             .subscribe({
-                if (it.isSuccessful) {
-                    categoriesAdapter.submitList(it.body()?.categories)
-                }
+                categoriesAdapter.submitList(it.categories)
             }, {
                 it.printStackTrace()
             }).addDisposable()

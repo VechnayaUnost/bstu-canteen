@@ -1,5 +1,7 @@
 package by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import by.darya_zdzitavetskaya.bstu_canteen.R
@@ -20,5 +22,9 @@ class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding>()
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         //TODO
+
+        viewBinding.tvWriteToSupport.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:brstu.canteen@gmail.com")))
+        }
     }
 }

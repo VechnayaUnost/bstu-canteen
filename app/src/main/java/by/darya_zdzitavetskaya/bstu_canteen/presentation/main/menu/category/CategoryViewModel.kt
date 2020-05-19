@@ -44,9 +44,7 @@ class CategoryViewModel @Inject constructor(
         categoryRepository.getCategory(categoryId)
             .applySchedulers()
             .subscribe({
-                if (it.isSuccessful) {
-                    productsAdapter.submitList(it.body()?.products)
-                }
+                productsAdapter.submitList(it.products)
             }, {
                 it.printStackTrace()
             }).addDisposable()

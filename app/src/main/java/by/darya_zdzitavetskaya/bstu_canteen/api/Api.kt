@@ -7,6 +7,7 @@ import by.darya_zdzitavetskaya.bstu_canteen.api.request.VerifyRequest
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.*
 import io.reactivex.Completable
 import io.reactivex.Single
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -38,10 +39,12 @@ interface Api {
 
         private const val DELETE_PRODUCT_ENDPOINT = "api/products/delete/{productId}"
 
+        private const val UPLOAD_PRODUCT_IMAGE_ENDPOINT = "api/upload/productImage"
+
     }
 
     @GET(CHECK_ENDPOINT)
-    fun check(): Single<Response<UserResponse>>
+    fun check(): Single<UserResponse>
 
     @POST(LOGIN_ENDPOINT)
     fun login(@Body body: LoginRequest): Single<Response<UserResponse>>
@@ -59,20 +62,24 @@ interface Api {
     fun setPassword(@Body body: SetPasswordRequest): Completable
 
     @GET(CATEGORIES_ENDPOINT)
-    fun getCategories(): Single<Response<CategoriesResponse>>
+    fun getCategories(): Single<CategoriesResponse>
 
     @GET(GET_CATEGORY_ENDPOINT)
-    fun getCategory(@Path("categoryId") categoryId: String): Single<Response<CategoryResponse>>
+    fun getCategory(@Path("categoryId") categoryId: String): Single<CategoryResponse>
 
     @POST(CREATE_PRODUCT_ENDPOINT)
     fun createProduct(@Body body: Product): Single<Response<Product>>
 
     @GET(GET_PRODUCT_ENDPOINT)
-    fun getProduct(@Path("productId") productId: String): Single<Response<ProductResponse>>
+    fun getProduct(@Path("productId") productId: String): Single<ProductResponse>
 
     @PUT(UPDATE_PRODUCT_ENDPOINT)
     fun updateProduct(@Body body: Product): Single<Response<Product>>
 
     @DELETE(DELETE_PRODUCT_ENDPOINT)
     fun deleteProduct(@Path("productId") productId: String): Completable
+
+    @Multipart
+    @POST(UPLOAD_PRODUCT_IMAGE_ENDPOINT)
+    fun uploadImage(@Part file: MultipartBody.Part): Single<UploadImageResponse>
 }

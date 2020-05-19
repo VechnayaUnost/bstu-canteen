@@ -20,12 +20,8 @@ class DetailProductViewModel @Inject constructor(
     fun getProduct(productId: String) {
         detailProductRepository.getProduct(productId)
             .applySchedulers()
-            .subscribe({ resp ->
-                if (resp.isSuccessful) {
-                    resp.body()?.let {
-                        productLiveData.postValue(it.product)
-                    }
-                }
+            .subscribe({
+                productLiveData.postValue(it.product)
             }, {
                 it.printStackTrace()
             }).addDisposable()

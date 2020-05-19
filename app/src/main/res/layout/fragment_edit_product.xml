@@ -22,28 +22,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivPicture"
-            android:layout_width="83dp"
-            android:layout_height="82dp"
-            android:layout_marginStart="@dimen/base_spacing"
-            android:layout_marginTop="@dimen/smallest_spacing"
-            android:foreground="@color/black_out"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:shapeAppearanceOverlay="@style/circleImageView"
-            tools:src="@drawable/splash_screen_background" />
-
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvPicture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_camera"
-            app:layout_constraintBottom_toBottomOf="@+id/ivPicture"
-            app:layout_constraintEnd_toEndOf="@+id/ivPicture"
-            app:layout_constraintStart_toStartOf="@+id/ivPicture"
-            app:layout_constraintTop_toTopOf="@+id/ivPicture" />
+            android:layout_marginStart="@dimen/base_spacing"
+            android:layout_marginTop="@dimen/smallest_spacing"
+            app:cardCornerRadius="41dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPicture"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
+                android:foreground="@color/black_out"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{viewModel.imageUrl}"
+                app:isCircle="@{true}"
+                tools:src="@drawable/splash_screen_background" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_camera" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etName"
@@ -55,7 +61,7 @@
             android:text="@={viewModel.name}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivPicture"
+            app:layout_constraintStart_toEndOf="@id/cvPicture"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             tools:text="Fish" />
 
@@ -68,7 +74,7 @@
             android:text="@string/edit_product_info_message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivPicture" />
+            app:layout_constraintTop_toBottomOf="@id/cvPicture" />
 
         <View
             android:id="@+id/view"

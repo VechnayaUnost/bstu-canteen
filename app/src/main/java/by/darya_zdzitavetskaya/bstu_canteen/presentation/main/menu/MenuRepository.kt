@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class MenuRepository @Inject constructor(private val api: Api) : MenuProtocol.IMenuRepository {
 
-    override fun getCategories(): Single<Response<CategoriesResponse>> {
+    override fun getCategories(): Single<CategoriesResponse> {
         return api.getCategories().subscribeOn(Schedulers.io())
     }
 }

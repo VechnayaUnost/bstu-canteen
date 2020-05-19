@@ -37,7 +37,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvChangePassword"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/biggest_spacing"
             android:drawableEnd="@drawable/ic_more"
@@ -52,27 +52,42 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvPaymentMethod"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_more"
             android:paddingTop="@dimen/small_spacing"
             android:paddingBottom="@dimen/small_spacing"
             android:text="@string/profile_add_payment_method_title"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-            app:layout_constraintBottom_toTopOf="@id/btnLogout"
+            app:layout_constraintBottom_toTopOf="@id/tvWriteToSupport"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvChangePassword" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWriteToSupport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_more"
+            android:paddingTop="@dimen/small_spacing"
+            android:paddingBottom="@dimen/small_spacing"
+            android:text="@string/profile_write_to_support_title"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toTopOf="@id/btnLogout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPaymentMethod" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/biggest_spacing"
+            android:onClick="@{() -> viewModel.logout()}"
             android:text="@string/profile_logout_btn_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPaymentMethod" />
+            app:layout_constraintTop_toBottomOf="@id/tvWriteToSupport" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,6 +6,7 @@ import by.darya_zdzitavetskaya.bstu_canteen.navigation.Navigator
 import by.darya_zdzitavetskaya.bstu_canteen.navigation.Screens
 import by.darya_zdzitavetskaya.bstu_canteen.shared.ITokenCache
 import by.darya_zdzitavetskaya.bstu_canteen.shared.IUserCache
+import com.sembozdemir.permissionskt.handlePermissionsResult
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -36,12 +37,8 @@ class MainActivity : DaggerAppCompatActivity() {
                 val disp = api.check().subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        if (it.isSuccessful) {
-                            it.body()?.let { user -> userCache.newUser(user) }
-                            ciceroneFactory.router.newRootScreen(Screens.MainScreen())
-                        } else {
-                            ciceroneFactory.router.newRootScreen(Screens.LoginScreen())
-                        }
+                        it?.let { userCache.newUser(it) }
+                        ciceroneFactory.router.newRootScreen(Screens.MainScreen())
                     }, {
                         ciceroneFactory.router.newRootScreen(Screens.LoginScreen())
                     })
@@ -65,5 +62,14 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onPause() {
         super.onPause()
         ciceroneFactory.navigatorHolder.removeNavigator()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        handlePermissionsResult(requestCode, permissions, grantResults)
     }
 }
