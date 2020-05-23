@@ -1,6 +1,7 @@
 package by.darya_zdzitavetskaya.bstu_canteen.di.modules
 
 import by.darya_zdzitavetskaya.bstu_canteen.MainActivity
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ScannerFragment
 import by.darya_zdzitavetskaya.bstu_canteen.di.ActivityScope
 import by.darya_zdzitavetskaya.bstu_canteen.di.FragmentScope
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.confirmation_code.ConfirmationCodeFragment
@@ -13,7 +14,9 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.MenuFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.category.CategoryFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_product.DetailProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderFragment
 import dagger.Module
 import dagger.android.AndroidInjectionModule
 import dagger.android.ContributesAndroidInjector
@@ -71,5 +74,17 @@ abstract class AppModule {
         @FragmentScope
         @ContributesAndroidInjector(modules = [MainModule::class])
         abstract fun cartFragment(): CartFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun detailOrderFragment(): DetailOrderFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun ordersFragment(): OrdersFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun scannerFragment(): ScannerFragment
     }
 }

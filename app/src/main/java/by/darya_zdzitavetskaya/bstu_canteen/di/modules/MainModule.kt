@@ -17,7 +17,9 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_produc
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductProtocol
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductRepository
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductViewModel
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersViewModel
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileViewModel
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -54,6 +56,16 @@ abstract class MainModule {
     @IntoMap
     @ViewModelKey(CartViewModel::class)
     abstract fun bindCartViewModel(viewModel: CartViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailOrderViewModel::class)
+    abstract fun bindDetailOrderViewModel(viewModel: DetailOrderViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(OrdersViewModel::class)
+    abstract fun bindOrdersViewModel(viewModel: OrdersViewModel): ViewModel
 
 
     @Binds

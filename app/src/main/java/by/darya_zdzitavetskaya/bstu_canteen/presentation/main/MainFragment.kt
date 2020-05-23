@@ -9,7 +9,9 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.base.BaseFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.base.BaseViewModel
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.cart.CartFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.MenuFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileFragment
+import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
 
 class MainFragment : BaseFragment<BaseViewModel, FragmentMainBinding>() {
@@ -22,23 +24,31 @@ class MainFragment : BaseFragment<BaseViewModel, FragmentMainBinding>() {
 
     override val layoutId = R.layout.fragment_main
 
+    private var activeItemId = R.id.menu
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        showFragment(MenuFragment())
+        bottomNavigation.selectedItemId = activeItemId
+        selectFragment(activeItemId)
 
         viewBinding.bottomNavigation.setOnNavigationItemSelectedListener {
-            showFragment(
-                when (it.itemId) {
-                    R.id.menu -> MenuFragment()
-                    R.id.orders -> ProfileFragment()
-                    R.id.cart -> CartFragment()
-                    R.id.profile -> ProfileFragment()
-                    else -> throw Exception("No fragment for bottom menu item")
-                }
-            )
+            selectFragment(it.itemId)
+            activeItemId = it.itemId
             return@setOnNavigationItemSelectedListener true
         }
+    }
+
+    private fun selectFragment(menuId: Int) {
+        showFragment(
+            when (menuId) {
+                R.id.menu -> MenuFragment()
+                R.id.orders -> OrdersFragment()
+                R.id.cart -> CartFragment()
+                R.id.profile -> ProfileFragment()
+                else -> throw Exception("No fragment for bottom menu item")
+            }
+        )
     }
 
     private fun showFragment(selectedFragment: Fragment) {

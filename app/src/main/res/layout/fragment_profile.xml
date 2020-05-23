@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
+            android:layout_marginTop="@dimen/base_spacing"
             android:text="@string/profile_your_email_subtitle"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,11 +45,27 @@
             android:paddingTop="@dimen/small_spacing"
             android:paddingBottom="@dimen/small_spacing"
             android:text="@string/profile_change_password_btn_label"
+            android:onClick="@{() -> viewModel.goToPass()}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             app:layout_constraintBottom_toTopOf="@id/tvPaymentMethod"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvScanQrCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_more"
+            android:paddingTop="@dimen/small_spacing"
+            android:paddingBottom="@dimen/small_spacing"
+            android:onClick="@{() -> viewModel.scanQrCode()}"
+            android:text="@string/profile_scan_qr_code_title"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toTopOf="@id/tvPaymentMethod"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvChangePassword" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvPaymentMethod"
@@ -62,7 +79,7 @@
             app:layout_constraintBottom_toTopOf="@id/tvWriteToSupport"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvChangePassword" />
+            app:layout_constraintTop_toBottomOf="@id/tvScanQrCode" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvWriteToSupport"

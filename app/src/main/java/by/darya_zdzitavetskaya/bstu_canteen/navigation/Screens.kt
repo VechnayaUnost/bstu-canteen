@@ -1,7 +1,9 @@
 package by.darya_zdzitavetskaya.bstu_canteen.navigation
 
 import androidx.core.os.bundleOf
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ScannerFragment
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.Category
+import by.darya_zdzitavetskaya.bstu_canteen.api.response.Order
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.ShortProduct
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.confirmation_code.ConfirmationCodeFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.login.LoginFragment
@@ -11,6 +13,7 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.MainFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.category.CategoryFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_product.DetailProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 const val USER_ID_EXTRA = "userId"
@@ -65,6 +68,17 @@ class Screens {
     ) : SupportAppScreen() {
         override fun getFragment() = DetailProductFragment().apply {
             arguments = bundleOf(ShortProduct::class.java.name to product)
+        }
+    }
+
+    class ScannerScreen : SupportAppScreen() {
+        override fun getFragment() =
+            ScannerFragment()
+    }
+
+    class DetailOrderScreen(private val order: Order) : SupportAppScreen() {
+        override fun getFragment() = DetailOrderFragment().apply {
+            arguments = bundleOf(Order::class.java.name to order)
         }
     }
 }

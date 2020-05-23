@@ -21,6 +21,15 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun logout() {
+        //TODO
         router.newRootScreen(Screens.LoginScreen())
+    }
+
+    fun scanQrCode() {
+        router.navigateTo(Screens.ScannerScreen())
+    }
+
+    fun goToPass() {
+        router.navigateTo(Screens.PasswordScreen())
     }
 }

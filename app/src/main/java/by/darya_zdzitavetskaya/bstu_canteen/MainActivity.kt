@@ -6,6 +6,7 @@ import by.darya_zdzitavetskaya.bstu_canteen.navigation.Navigator
 import by.darya_zdzitavetskaya.bstu_canteen.navigation.Screens
 import by.darya_zdzitavetskaya.bstu_canteen.shared.ITokenCache
 import by.darya_zdzitavetskaya.bstu_canteen.shared.IUserCache
+import by.darya_zdzitavetskaya.bstu_canteen.utils.custom_views.ProgressDialog
 import com.sembozdemir.permissionskt.handlePermissionsResult
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -28,14 +29,19 @@ class MainActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var api: Api
 
+    private var progressDialog: ProgressDialog? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
+        progressDialog = ProgressDialog(this)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             if (!tokenCache.accessToken.isNullOrBlank()) {
                 val disp = api.check().subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe { progressDialog?.show() }
+                    .doFinally { progressDialog?.dismiss() }
                     .subscribe({
                         it?.let { userCache.newUser(it) }
                         ciceroneFactory.router.newRootScreen(Screens.MainScreen())

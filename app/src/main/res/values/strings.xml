@@ -34,6 +34,7 @@
     <string name="profile_your_email_subtitle">Your email</string>
     <string name="profile_add_payment_method_title">Add payment method</string>
     <string name="profile_write_to_support_title">Write to support</string>
+    <string name="profile_scan_qr_code_title">Scan QR Code</string>
 
     <!-- Cart screen -->
     <string name="cart_total_items">Total items: %d</string>
@@ -59,5 +60,10 @@
     <string name="detail_product_balance_subtitle">Remain %d</string>
     <string name="detail_product_quantity_subtitle">Choose quantity</string>
     <string name="detail_product_add_to_cart_btn_label">Add to cart</string>
+
+    <!-- Detail order screen -->
+    <string name="detail_order_issued_btn_label">Issued</string>
+    <string name="detail_order_status_paid">Status: <![CDATA[<font color=#F79843>paid</font>]]></string>
+    <string name="detail_order_status_issued">Status: <![CDATA[<font color=#9FC439>issued</font>]]></string>
 
 </resources>
