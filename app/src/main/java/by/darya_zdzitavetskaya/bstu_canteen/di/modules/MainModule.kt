@@ -18,6 +18,9 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductRepository
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductViewModel
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersViewModel
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayRepository
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayRepositoryImpl
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayViewModel
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileViewModel
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderViewModel
 import dagger.Binds
@@ -67,6 +70,11 @@ abstract class MainModule {
     @ViewModelKey(OrdersViewModel::class)
     abstract fun bindOrdersViewModel(viewModel: OrdersViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(PayViewModel::class)
+    abstract fun bindPayViewModel(viewModel: PayViewModel): ViewModel
+
 
     @Binds
     abstract fun bindMenuRep(rep: MenuRepository): MenuProtocol.IMenuRepository
@@ -82,4 +90,7 @@ abstract class MainModule {
 
     @Binds
     abstract fun bindCartRep(rep: CartRepository): CartProtocol.ICartRepository
+
+    @Binds
+    abstract fun bindPayRep(rep: PayRepositoryImpl): PayRepository
 }

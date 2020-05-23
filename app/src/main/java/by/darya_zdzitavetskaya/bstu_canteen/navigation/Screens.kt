@@ -1,7 +1,7 @@
 package by.darya_zdzitavetskaya.bstu_canteen.navigation
 
 import androidx.core.os.bundleOf
-import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ScannerFragment
+import androidx.fragment.app.Fragment
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.Category
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.Order
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.ShortProduct
@@ -13,6 +13,8 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.MainFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.category.CategoryFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_product.DetailProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ScannerFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
@@ -79,6 +81,12 @@ class Screens {
     class DetailOrderScreen(private val order: Order) : SupportAppScreen() {
         override fun getFragment() = DetailOrderFragment().apply {
             arguments = bundleOf(Order::class.java.name to order)
+        }
+    }
+
+    class PayScreen : SupportAppScreen() {
+        override fun getFragment(): Fragment? {
+            return PayFragment()
         }
     }
 }

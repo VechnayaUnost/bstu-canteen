@@ -7,6 +7,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+
+
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+    def key = localProperties.getProperty("stripeKey")
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -24,6 +30,15 @@ android {
         }
     }
 
+    def stripeDimension = "stripe"
+    flavorDimensions(stripeDimension)
+    productFlavors {
+        devStripe {
+            dimension stripeDimension
+            buildConfigField "String", "STIPE_KEY", "\"${key}\""
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -32,6 +47,7 @@ android {
     dataBinding {
         enabled = true
     }
+
 }
 
 androidExtensions {
@@ -93,4 +109,7 @@ dependencies {
     //Barcode scanner
     implementation 'me.dm7.barcodescanner:zxing:1.9.13'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
+    //stripe
+    implementation 'com.stripe:stripe-android:14.1.0'
 }

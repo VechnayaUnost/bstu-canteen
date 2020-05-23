@@ -1,7 +1,6 @@
 package by.darya_zdzitavetskaya.bstu_canteen.di.modules
 
 import by.darya_zdzitavetskaya.bstu_canteen.MainActivity
-import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ScannerFragment
 import by.darya_zdzitavetskaya.bstu_canteen.di.ActivityScope
 import by.darya_zdzitavetskaya.bstu_canteen.di.FragmentScope
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.auth.confirmation_code.ConfirmationCodeFragment
@@ -15,7 +14,9 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.category.Cate
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_product.DetailProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ScannerFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderFragment
 import dagger.Module
 import dagger.android.AndroidInjectionModule
@@ -86,5 +87,9 @@ abstract class AppModule {
         @FragmentScope
         @ContributesAndroidInjector(modules = [MainModule::class])
         abstract fun scannerFragment(): ScannerFragment
+
+        @FragmentScope
+        @ContributesAndroidInjector(modules = [MainModule::class])
+        abstract fun payFragment(): PayFragment
     }
 }

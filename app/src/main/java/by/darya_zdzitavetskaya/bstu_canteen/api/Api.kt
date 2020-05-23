@@ -1,9 +1,6 @@
 package by.darya_zdzitavetskaya.bstu_canteen.api
 
-import by.darya_zdzitavetskaya.bstu_canteen.api.request.LoginRequest
-import by.darya_zdzitavetskaya.bstu_canteen.api.request.RegistrationRequest
-import by.darya_zdzitavetskaya.bstu_canteen.api.request.SetPasswordRequest
-import by.darya_zdzitavetskaya.bstu_canteen.api.request.VerifyRequest
+import by.darya_zdzitavetskaya.bstu_canteen.api.request.*
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.*
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -40,6 +37,8 @@ interface Api {
         private const val DELETE_PRODUCT_ENDPOINT = "api/products/delete/{productId}"
 
         private const val UPLOAD_PRODUCT_IMAGE_ENDPOINT = "api/upload/productImage"
+
+        private const val STRIPE_PAY = "api/create-payment-intent"
 
     }
 
@@ -82,4 +81,8 @@ interface Api {
     @Multipart
     @POST(UPLOAD_PRODUCT_IMAGE_ENDPOINT)
     fun uploadImage(@Part file: MultipartBody.Part): Single<UploadImageResponse>
+
+    @POST(STRIPE_PAY)
+    fun preparePayment(@Body body: PayRequest): Single<PayResponse>
+
 }
