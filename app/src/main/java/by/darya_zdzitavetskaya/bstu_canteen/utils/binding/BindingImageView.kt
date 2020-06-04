@@ -12,8 +12,7 @@ fun ImageView.setImage(imageUri: String?, isCircle: Boolean) {
     when {
         isCircle -> Glide
             .with(context)
-            .load(imageUri)   //TODO
-            //.load("https://trikky.ru/wp-content/blogs.dir/1/files/2019/02/17/foto.jpg")
+            .load(imageUri)
             .apply(RequestOptions.circleCropTransform())
             .into(this)
         else -> Glide.with(context).load(imageUri).into(this)

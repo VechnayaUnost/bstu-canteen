@@ -14,6 +14,11 @@ class TokenCache @Inject constructor(private val sharedPreferences: ISharedPrefe
         this.accessToken = accessToken
         sharedPreferences.setToken(accessToken)
     }
+
+    override fun onClearAccessToken() {
+        accessToken = null
+        sharedPreferences.clearToken()
+    }
 }
 
 interface ITokenCache {
@@ -21,4 +26,6 @@ interface ITokenCache {
     var accessToken: String?
 
     fun onNewAccessToken(accessToken: String)
+
+    fun onClearAccessToken()
 }

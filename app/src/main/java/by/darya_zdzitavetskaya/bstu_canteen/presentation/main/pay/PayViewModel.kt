@@ -1,34 +1,36 @@
 package by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import by.darya_zdzitavetskaya.bstu_canteen.api.request.PayItem
 import by.darya_zdzitavetskaya.bstu_canteen.api.request.PayRequest
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.PayResponse
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.base.BaseViewModel
-import com.stripe.android.Stripe
+import by.darya_zdzitavetskaya.bstu_canteen.shared.CartCache
+import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
 class PayViewModel @Inject constructor(
     private val payRepository: PayRepository,
-    private val context: Context
+    private val cartCache: CartCache,
+    private val router: Router
 ) : BaseViewModel() {
 
-    val payHelpDate = MutableLiveData<PayResponse>()
+    val payHelpData = MutableLiveData<PayResponse>()
 
     fun preparePayment() {
+        val tempList = mutableListOf<PayItem>()
+        cartCache.cartLiveData.value?.forEach { tempList.add(PayItem(it.id, it.quantity)) }
         payRepository.preparePayment(
-            PayRequest(
-                "Rub", listOf(
-                    PayItem(1)
-                )
-            )
+            PayRequest(tempList)
         ).subscribe({
-            payHelpDate.postValue(it)
+            payHelpData.postValue(it)
         }, {
-
+            it.printStackTrace()
         }).addDisposable()
-
     }
 
+    fun finishPayment() {
+        cartCache.cartLiveData.postValue(mutableSetOf())
+        router.exit()
+    }
 }

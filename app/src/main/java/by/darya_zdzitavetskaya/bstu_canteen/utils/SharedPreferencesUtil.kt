@@ -17,9 +17,15 @@ class SharedPreferencesUtil @Inject constructor(private val context: Context) :
         return context.getSharedPreferences(ACCESS_TOKEN_PREFERENCES, Context.MODE_PRIVATE)
             .getString(ACCESS_TOKEN_PREFERENCES, null)
     }
+
+    override fun clearToken() {
+        context.getSharedPreferences(ACCESS_TOKEN_PREFERENCES, Context.MODE_PRIVATE).edit().clear()
+            .apply()
+    }
 }
 
 interface ISharedPreferencesUtil {
     fun getToken(): String?
     fun setToken(accessToken: String)
+    fun clearToken()
 }

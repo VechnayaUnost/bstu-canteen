@@ -14,10 +14,10 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.category.Cate
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_product.DetailProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersFragment
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.detail_order.DetailOrderFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileFragment
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ScannerFragment
-import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderFragment
 import dagger.Module
 import dagger.android.AndroidInjectionModule
 import dagger.android.ContributesAndroidInjector

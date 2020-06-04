@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import by.darya_zdzitavetskaya.bstu_canteen.R
 import by.darya_zdzitavetskaya.bstu_canteen.api.response.Order
 import by.darya_zdzitavetskaya.bstu_canteen.navigation.Screens
 import com.google.gson.Gson
@@ -45,7 +46,8 @@ class ScannerFragment : DaggerFragment(), ZXingScannerView.ResultHandler {
             val order = Gson().fromJson(rawResult.text, Order::class.java)
             router.navigateTo(Screens.DetailOrderScreen(order))
         } catch (e: JsonSyntaxException) {
-            Toast.makeText(activity, "Can't scan this barcode!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.scanner_error_message), Toast.LENGTH_SHORT)
+                .show()
 
             Handler().postDelayed(
                 Runnable { mScannerView?.resumeCameraPreview(this) },

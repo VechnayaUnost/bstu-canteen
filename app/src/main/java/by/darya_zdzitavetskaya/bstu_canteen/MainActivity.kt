@@ -44,9 +44,9 @@ class MainActivity : DaggerAppCompatActivity() {
                     .doFinally { progressDialog?.dismiss() }
                     .subscribe({
                         it?.let { userCache.newUser(it) }
-                        ciceroneFactory.router.newRootScreen(Screens.PayScreen())
+                        ciceroneFactory.router.newRootScreen(Screens.MainScreen())
                     }, {
-                        ciceroneFactory.router.newRootScreen(Screens.PayScreen())
+                        ciceroneFactory.router.newRootScreen(Screens.LoginScreen())
                     })
             } else {
                 ciceroneFactory.router.newRootScreen(Screens.LoginScreen())

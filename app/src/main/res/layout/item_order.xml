@@ -17,9 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/base_spacing"
+        app:cardBackgroundColor="@color/colorLightYellow"
         app:cardCornerRadius="@dimen/small_spacing"
-        app:cardElevation="@dimen/smallest_spacing"
-        app:cardBackgroundColor="@color/colorLightYellow">
+        app:cardElevation="@dimen/smallest_spacing">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{item.date}"
+                android:text="@{item.paidAt}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,9 +42,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_spacing"
+                android:text="@{item.issued ? Html.fromHtml(@string/detail_order_status_issued) : Html.fromHtml(@string/detail_order_status_paid)}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 android:textColor="@color/colorBlack"
-                android:text="@{item.issued ? Html.fromHtml(@string/detail_order_status_issued) : Html.fromHtml(@string/detail_order_status_paid)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDate"
@@ -55,8 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_spacing"
-                app:qrCode="@{item}"
-                app:layout_constraintTop_toBottomOf="@id/tvStatus" />
+                app:layout_constraintTop_toBottomOf="@id/tvStatus"
+                app:qrCode="@{item}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -17,12 +17,18 @@ import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.detail_produc
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductProtocol
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductRepository
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.menu.edit_product.EditProductViewModel
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersRepository
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersRepositoryImpl
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.OrdersViewModel
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayRepository
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayRepositoryImpl
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.pay.PayViewModel
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileRepository
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileRepositoryImpl
 import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.ProfileViewModel
-import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderViewModel
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.detail_order.DetailOrderRepository
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.detail_order.DetailOrderRepositoryImpl
+import by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.detail_order.DetailOrderViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -93,4 +99,13 @@ abstract class MainModule {
 
     @Binds
     abstract fun bindPayRep(rep: PayRepositoryImpl): PayRepository
+
+    @Binds
+    abstract fun bindProfileRep(rep: ProfileRepositoryImpl): ProfileRepository
+
+    @Binds
+    abstract fun bindOrdersRep(rep: OrdersRepositoryImpl): OrdersRepository
+
+    @Binds
+    abstract fun bindDetailOrderRep(rep: DetailOrderRepositoryImpl): DetailOrderRepository
 }

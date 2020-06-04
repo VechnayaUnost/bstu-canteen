@@ -44,7 +44,8 @@
             app:borderWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/colorPrimary" />
+            app:tint="@color/colorPrimary"
+            app:visibleOrGone="@{viewModel.isAdminObservable}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

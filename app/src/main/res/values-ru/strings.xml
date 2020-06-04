@@ -66,4 +66,14 @@
     <string name="detail_order_status_paid">Статус: <![CDATA[<font color=#F79843>оплачено</font>]]></string>
     <string name="detail_order_status_issued">Статус: <![CDATA[<font color=#9FC439>выдано</font>]]></string>
 
+    <!-- Payment screen -->
+    <string name="payment_pay_btn_label">Оплатить</string>
+    <string name="payment_add_card_title">Добавить карту</string>
+    <string name="payment_successful_payment_message">Ваша оплата была выполнена успешно.</string>
+    <string name="payment_failed_payment_message">Ваша оплата не выполнилась.</string>
+    <string name="payment_title">Оплата</string>
+
+    <!-- Scanner screen -->
+    <string name="scanner_error_message">Невозможно отстканировать этот баркод!</string>
+
 </resources>

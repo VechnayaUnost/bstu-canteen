@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="by.darya_zdzitavetskaya.bstu_canteen.presentation.main.profile.detail_order.DetailOrderViewModel" />
+            type="by.darya_zdzitavetskaya.bstu_canteen.presentation.main.orders.detail_order.DetailOrderViewModel" />
 
     </data>
 
@@ -22,14 +22,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnIssued"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="128dp"
-            android:text="@string/detail_order_issued_btn_label"
             android:layout_marginBottom="@dimen/base_spacing"
+            android:enabled="@{!viewModel.isIssuedObservable}"
+            android:minWidth="128dp"
+            android:onClick="@{() -> viewModel.setIssued()}"
+            android:text="@string/detail_order_issued_btn_label"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:visibleOrGone="@{viewModel.isAdminObservable}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

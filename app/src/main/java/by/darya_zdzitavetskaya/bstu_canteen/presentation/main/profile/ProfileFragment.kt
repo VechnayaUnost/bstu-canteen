@@ -21,7 +21,6 @@ class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding>()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //TODO
 
         viewBinding.tvWriteToSupport.setOnClickListener {
             startActivity(Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:brstu.canteen@gmail.com")))

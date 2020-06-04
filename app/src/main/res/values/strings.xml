@@ -33,7 +33,7 @@
     <string name="profile_logout_btn_label">Logout</string>
     <string name="profile_your_email_subtitle">Your email</string>
     <string name="profile_add_payment_method_title">Add payment method</string>
-    <string name="profile_write_to_support_title">Write to support</string>
+    <string name="profile_write_to_support_title">Contact support</string>
     <string name="profile_scan_qr_code_title">Scan QR Code</string>
 
     <!-- Cart screen -->
@@ -65,5 +65,15 @@
     <string name="detail_order_issued_btn_label">Issued</string>
     <string name="detail_order_status_paid">Status: <![CDATA[<font color=#F79843>paid</font>]]></string>
     <string name="detail_order_status_issued">Status: <![CDATA[<font color=#9FC439>issued</font>]]></string>
+
+    <!-- Payment screen -->
+    <string name="payment_pay_btn_label">Pay</string>
+    <string name="payment_add_card_title">Add card</string>
+    <string name="payment_successful_payment_message">Your payment was successful.</string>
+    <string name="payment_failed_payment_message">Your payment was failed.</string>
+    <string name="payment_title">Payment</string>
+
+    <!-- Scanner screen -->
+    <string name="scanner_error_message">Can\'t scan this barcode!</string>
 
 </resources>

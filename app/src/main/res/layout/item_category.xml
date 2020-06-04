@@ -20,16 +20,14 @@
         android:paddingEnd="@dimen/base_spacing"
         android:paddingBottom="@dimen/smallest_spacing">
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivPicture"
             android:layout_width="64dp"
             android:layout_height="64dp"
             app:imageUrl="@{item.imageUrl}"
-            app:isCircle="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/circleImageView"
             tools:src="@drawable/splash_screen_background" />
 
         <androidx.appcompat.widget.AppCompatTextView

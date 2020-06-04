@@ -24,6 +24,8 @@ interface Api {
 
         private const val SET_PASSWORD_ENDPOINT = "api/auth/setPassword"
 
+        private const val LOGOUT_ENDPOINT = "api/auth/logout"
+
         private const val CATEGORIES_ENDPOINT = "api/categories"
 
         private const val GET_CATEGORY_ENDPOINT = "api/categories/{categoryId}"
@@ -38,7 +40,11 @@ interface Api {
 
         private const val UPLOAD_PRODUCT_IMAGE_ENDPOINT = "api/upload/productImage"
 
-        private const val STRIPE_PAY = "api/create-payment-intent"
+        private const val STRIPE_PAY = "api/charges/create-payment-intent"
+
+        private const val GET_ORDERS_ENDPOINT = "api/orders"
+
+        private const val ORDERS_ISSUED_ENDPOINT = "api/orders/issued/{orderId}"
 
     }
 
@@ -59,6 +65,9 @@ interface Api {
 
     @POST(SET_PASSWORD_ENDPOINT)
     fun setPassword(@Body body: SetPasswordRequest): Completable
+
+    @POST(LOGOUT_ENDPOINT)
+    fun logout(): Completable
 
     @GET(CATEGORIES_ENDPOINT)
     fun getCategories(): Single<CategoriesResponse>
@@ -84,5 +93,11 @@ interface Api {
 
     @POST(STRIPE_PAY)
     fun preparePayment(@Body body: PayRequest): Single<PayResponse>
+
+    @GET(GET_ORDERS_ENDPOINT)
+    fun getOrders(): Single<OrdersResponse>
+
+    @POST(ORDERS_ISSUED_ENDPOINT)
+    fun makeIssued(@Path("orderId") orderId: String): Completable
 
 }
