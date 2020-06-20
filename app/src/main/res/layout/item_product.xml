@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="by.darya_zdzitavetskaya.bstu_canteen.api.response.ShortProduct" />
+
+        <variable
+            name="clickListener"
+            type="by.darya_zdzitavetskaya.bstu_canteen.adapter.ProductItemClickListener" />
+
+    </data>
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drag_edge="right"
+        app:show_mode="pull_out">
+
+        <LinearLayout
+            android:id="@+id/right_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/base_spacing">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> clickListener.onDeleteClicked(item)}"
+                app:srcCompat="@drawable/ic_delete_action" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/base_spacing"
+                android:onClick="@{() -> clickListener.onEditClicked(item)}"
+                app:srcCompat="@drawable/ic_edit_action" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> clickListener.onProductItemClicked(item)}"
+            android:paddingStart="@dimen/base_spacing"
+            android:paddingTop="@dimen/smallest_spacing"
+            android:paddingEnd="@dimen/base_spacing"
+            android:paddingBottom="@dimen/smallest_spacing">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivPicture"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:imageUrl="@{item.imageUrl}"
+                app:isCircle="@{true}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                tools:src="@drawable/splash_screen_background" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/base_spacing"
+                android:drawableEnd="@drawable/ic_more"
+                android:text="@{item.name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivPicture"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Fish" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.daimajia.swipe.SwipeLayout>
+
+</layout>
+

@@ -1,3 +1,79 @@
 <resources>
-    <string name="app_name">bstu-canteen</string>
+    <string name="app_name">BSTU Canteen</string>
+    <string name="menu">Menu</string>
+    <string name="orders">Orders</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+
+    <!-- Login screen -->
+    <string name="login_toolbar_title">Login</string>
+    <string name="login_email_label">Email</string>
+    <string name="login_password_label">Password</string>
+    <string name="login_next_btn_label">Next</string>
+    <string name="login_create_account_btn_label">Create account</string>
+
+    <!-- Registration screen -->
+    <string name="registration_toolbar_title">Create account</string>
+    <string name="registration_hint">We will send code to confirm your email</string>
+
+    <!-- Confirmation code screen -->
+    <string name="confirmation_code_toolbar_title">Confirmation code</string>
+    <string name="confirmation_code_subtitle">We have sent an confirmation code to your email %s</string>
+    <string name="confirmation_code_expire">code will expire: %s</string>
+    <string name="sms_protection_timer" translatable="false">%02d:%02d</string>
+    <string name="confirmation_code_try_again">Try again</string>
+
+    <!-- Password screen -->
+    <string name="password_toolbar_title">Enter you password</string>
+    <string name="password_label">Password</string>
+    <string name="password_hint">Your password must be at least 8 characters, contain at least one digit, letter and special character(!@#$%^&amp;*)</string>
+
+    <!-- Profile screen -->
+    <string name="profile_change_password_btn_label">Change password</string>
+    <string name="profile_logout_btn_label">Logout</string>
+    <string name="profile_your_email_subtitle">Your email</string>
+    <string name="profile_add_payment_method_title">Add payment method</string>
+    <string name="profile_write_to_support_title">Contact support</string>
+    <string name="profile_scan_qr_code_title">Scan QR Code</string>
+
+    <!-- Cart screen -->
+    <string name="cart_total_items">Total items: %d</string>
+    <string name="cart_total_price">Total price: %.2f r.</string>
+    <string name="cart_make_order_btn_label">Make order</string>
+    <string name="cart_price">%.2f r.</string>
+    <string name="cart_cart_is_empty">Cart is empty</string>
+
+    <!-- Edit product screen -->
+    <string name="edit_product_info_message">Enter product name and add a photo.</string>
+    <string name="edit_product_description">Description</string>
+    <string name="edit_product_price">Price</string>
+    <string name="edit_product_price_suffix">r.</string>
+    <string name="edit_product_quantity">Quantity</string>
+    <string name="edit_product_done_btn_label">Done</string>
+    <string name="edit_product_new_product_title">Create new product</string>
+    <string name="edit_product_photo_dialog_title">How to get photo?</string>
+    <string name="edit_product_run_camera_text">Open camera</string>
+    <string name="edit_product_gallery_text">From gallery</string>
+
+    <!-- Detail product screen -->
+    <string name="detail_product_price_subtitle">Price %.2f r.</string>
+    <string name="detail_product_balance_subtitle">Remain %d</string>
+    <string name="detail_product_quantity_subtitle">Choose quantity</string>
+    <string name="detail_product_add_to_cart_btn_label">Add to cart</string>
+
+    <!-- Detail order screen -->
+    <string name="detail_order_issued_btn_label">Issued</string>
+    <string name="detail_order_status_paid">Status: <![CDATA[<font color=#F79843>paid</font>]]></string>
+    <string name="detail_order_status_issued">Status: <![CDATA[<font color=#9FC439>issued</font>]]></string>
+
+    <!-- Payment screen -->
+    <string name="payment_pay_btn_label">Pay</string>
+    <string name="payment_add_card_title">Add card</string>
+    <string name="payment_successful_payment_message">Your payment was successful.</string>
+    <string name="payment_failed_payment_message">Your payment was failed.</string>
+    <string name="payment_title">Payment</string>
+
+    <!-- Scanner screen -->
+    <string name="scanner_error_message">Can\'t scan this barcode!</string>
+
 </resources>

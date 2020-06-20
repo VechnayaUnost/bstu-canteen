@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">БрГТУ столовая</string>
+    <string name="menu">Меню</string>
+    <string name="orders">Заказы</string>
+    <string name="cart">Корзина</string>
+    <string name="profile">Профиль</string>
+
+    <!-- Login screen -->
+    <string name="login_toolbar_title">Вход</string>
+    <string name="login_email_label">Email</string>
+    <string name="login_password_label">Пароль</string>
+    <string name="login_next_btn_label">Далее</string>
+    <string name="login_create_account_btn_label">Создать аккаунт</string>
+
+    <!-- Registration screen -->
+    <string name="registration_toolbar_title">Создать аккаунт</string>
+    <string name="registration_hint">Мы отправим код для подтверждения вашей почты</string>
+
+    <!-- Confirmation code screen -->
+    <string name="confirmation_code_toolbar_title">Код подтверждения</string>
+    <string name="confirmation_code_subtitle">Мы отправили код подтверждения на вашу почту %s</string>
+    <string name="confirmation_code_expire">срок действия кода истечет: %s</string>
+    <string name="sms_protection_timer" translatable="false">%02d:%02d</string>
+    <string name="confirmation_code_try_again">Запросить заново</string>
+
+    <!-- Password screen -->
+    <string name="password_toolbar_title">Введите пароль</string>
+    <string name="password_label">Пароль</string>
+    <string name="password_hint">Ваш пароль должен быть как минимум 8 символов, содержать одну цифру, букву и специальный символ(!@#$%^&amp;*)</string>
+
+    <!-- Profile screen -->
+    <string name="profile_change_password_btn_label">Изменить пароль</string>
+    <string name="profile_logout_btn_label">Выйти</string>
+    <string name="profile_your_email_subtitle">Ваш email</string>
+    <string name="profile_add_payment_method_title">Добавить метод оплаты</string>
+    <string name="profile_write_to_support_title">Написать в поддержку</string>
+    <string name="profile_scan_qr_code_title">Отсканировать QR код</string>
+
+    <!-- Cart screen -->
+    <string name="cart_total_items">Продуктов: %d</string>
+    <string name="cart_total_price">Стоимость: %.2f р.</string>
+    <string name="cart_make_order_btn_label">Сделать заказ</string>
+    <string name="cart_price">%.2f р.</string>
+    <string name="cart_cart_is_empty">Добавьте продукты</string>
+
+    <!-- Edit product screen -->
+    <string name="edit_product_info_message">Введите название продукта и добавьте фото.</string>
+    <string name="edit_product_description">Описание</string>
+    <string name="edit_product_price">Стоимость</string>
+    <string name="edit_product_price_suffix">р.</string>
+    <string name="edit_product_quantity">Количество</string>
+    <string name="edit_product_done_btn_label">Готово</string>
+    <string name="edit_product_new_product_title">Создать новый продукт</string>
+    <string name="edit_product_photo_dialog_title">Как получить фото?</string>
+    <string name="edit_product_run_camera_text">Сделать снимок</string>
+    <string name="edit_product_gallery_text">Загрузить из галереи</string>
+
+    <!-- Detail product screen -->
+    <string name="detail_product_price_subtitle">Цена %.2f р.</string>
+    <string name="detail_product_balance_subtitle">Осталось %d</string>
+    <string name="detail_product_quantity_subtitle">Выберите количество</string>
+    <string name="detail_product_add_to_cart_btn_label">Добавить в корзину</string>
+
+    <!-- Detail order screen -->
+    <string name="detail_order_issued_btn_label">Выдано</string>
+    <string name="detail_order_status_paid">Статус: <![CDATA[<font color=#F79843>оплачено</font>]]></string>
+    <string name="detail_order_status_issued">Статус: <![CDATA[<font color=#9FC439>выдано</font>]]></string>
+
+    <!-- Payment screen -->
+    <string name="payment_pay_btn_label">Оплатить</string>
+    <string name="payment_add_card_title">Добавить карту</string>
+    <string name="payment_successful_payment_message">Ваша оплата была выполнена успешно.</string>
+    <string name="payment_failed_payment_message">Ваша оплата не выполнилась.</string>
+    <string name="payment_title">Оплата</string>
+
+    <!-- Scanner screen -->
+    <string name="scanner_error_message">Невозможно отстканировать этот баркод!</string>
+
+</resources>
